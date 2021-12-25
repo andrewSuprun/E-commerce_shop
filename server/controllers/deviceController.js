@@ -8,7 +8,7 @@ class DeviceController {
   }
 
   async getOne(req, res) {
-
+    
   }
 
 }
