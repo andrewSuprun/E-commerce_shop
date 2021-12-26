@@ -1,24 +1,29 @@
-require('dotenv').config();
-const express = require('express');
-const sequelize = require('./db');
-const models = require('./models/models');
-const cors = require('cors');
+require('dotenv').config()
+const express = require('express')
+const sequelize = require('./db')
+const models = require('./models/models')
+const cors = require('cors')
+const fileUpload = require('express-fileupload')
 const errorHandler = require('./middleware/ErrorHandlingMiddleware')
-const router = require('./routes/index');
+const router = require('./routes/index')
+const path = require('path')
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000
 
-const app = express();
-app.use(cors());
-app.use(express.json());
-app.use('/api', router);
-app.use(errorHandler);
+const app = express()
+app.use(cors())
+app.use(express.json())
+app.use(express.static(path.resolve(__dirname, 'static')))
+app.use(fileUpload({}))
+app.use('/api', router)
+
+app.use(errorHandler) //Error Handling, last Middleware
 
 app.get('/', (req, res) => {
   res.status(200).json({message: 'Hello Viewer'})
 })
 
-const start = async () => {
+const start = async () => {// DB-connection
   try{
     await sequelize.authenticate(),
     await sequelize.sync()
