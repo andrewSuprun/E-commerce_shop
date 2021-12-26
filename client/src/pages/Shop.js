@@ -1,10 +1,18 @@
 import React from 'react'
+import { Col, Container, Row } from 'react-bootstrap'
 
-function Shop() {
+const Shop = () => {
     return (
-        <div>
-            <h1>Shop</h1>
-        </div>
+        <Container>
+            <Row>
+                <Col md={3}>
+                
+                </Col>
+                <Col md={9}>
+                
+                </Col>
+            </Row>
+        </Container>
     )
 }
 
