@@ -9,10 +9,10 @@ class UserController {
 
   }
 
-  async check(req, res, next) {
+  async check(req, res, notNext) {
     const { id } = req.query
     if(!id) {
-      return next(ApiError.badRequest('Not setted id'))
+      return notNext(ApiError.badRequest('Not setted id'))
     }
     res.json(id)
   }
