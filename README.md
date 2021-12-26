@@ -1,1 +1,2 @@
-# Spotify_clone
+# Simple shop
+To be continue
