@@ -1,0 +1,17 @@
+.card {
+    width: 600px;
+    padding: 5px;
+}
+.title {
+    margin: auto;
+    color: tomato;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.input {
+    margin-top: 2px;
+}
